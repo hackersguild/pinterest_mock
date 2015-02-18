@@ -1,0 +1,11 @@
+<% @pins.each do | pin | %>
+	<li>
+	<%= pin.title %>
+	<img src="<%= pin.image_url %>" alt="">
+	<span><%= pin.likes %></span>
+	</li>
+	<%= link_to 'foo', pins_increment_path(id: pin.id) %>
+<% end %>
+
+
+	
