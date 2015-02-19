@@ -4,7 +4,19 @@
 	<img src="<%= pin.image_url %>" alt="">
 	<span><%= pin.likes %></span>
 	</li>
-	<%= link_to 'foo', pins_increment_path(id: pin.id) %>
+	<%= link_to 'like', pins_increment_path(id: pin.id) %>
+<% end %>
+
+<% @comments.each do | comment | %>
+	<%= comment.username %><br/>
+	<%= comment.body %>
+<% end %>
+
+
+<%= form_for @comment , url: pins_create_path(@comment), method: :post do |f| %>
+  Username: <%= f.text_field :username %><br />
+  Comment : <%= f.text_area :body %><br />
+  <%= f.submit %>
 <% end %>
 
 
