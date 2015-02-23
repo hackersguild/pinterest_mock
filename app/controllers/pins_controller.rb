@@ -6,7 +6,7 @@ class PinsController < ApplicationController
 	end
 
 	def create
-		Comment.create(comment_params)
+		Comment.create(body: params[:comment][:body], pin_id: params[:pin_id])
 		redirect_to :root
 	end
 
@@ -16,11 +16,4 @@ class PinsController < ApplicationController
 		p.save
 		redirect_to :root
 	end
-
-	private
-
-	def comment_params
-		params.require(:comment).permit(:username, :body)
-	end
-
 end

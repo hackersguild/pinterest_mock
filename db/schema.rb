@@ -14,9 +14,12 @@
 ActiveRecord::Schema.define(version: 20150219093957) do
 
   create_table "comments", force: :cascade do |t|
-    t.string "username"
-    t.string "body"
+    t.string  "username"
+    t.string  "body"
+    t.integer "pin_id"
   end
+
+  add_index "comments", ["pin_id"], name: "index_comments_on_pin_id"
 
   create_table "pins", force: :cascade do |t|
     t.string   "title"
