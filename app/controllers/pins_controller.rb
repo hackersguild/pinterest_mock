@@ -6,8 +6,6 @@ class PinsController < ApplicationController
 	end
 
 	def create
-		Comment.create(body: params[:comment][:body], pin_id: params[:pin_id])
-		redirect_to :root
 	end
 
 	def increment
